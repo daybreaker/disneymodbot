@@ -33,3 +33,7 @@ You can use your user name, or create a unique user just to run as the bot user,
 5) Remember to change the subreddit name in the main ruby file.
 
 6) Run the app as `bundle exec ruby disneymodbot.rb`
+
+### Issues & Future Work
+
+Right now you need to run this off a computer that's always on, so like a server on heroku or aws. 
