@@ -2,6 +2,10 @@
 ### Finds reposts based on post title
 Every time a post is made, this bot searches the subreddit for the same title, and if it finds an exact match, it adds a report to the post.
 
+It uses the Redd gem.
+
+last_update.txt keeps the unix timestamp of the last post it checked in case you need to restart the script, so it doesnt re-process posts that were already checked. You can modify it with an older timestamp if you want to force a recheck of older posts.
+
 ### Setup
 
 1) Go to https://www.reddit.com/prefs/apps and create an app. 
