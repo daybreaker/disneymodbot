@@ -25,14 +25,14 @@ def check_new_queue
 
       next if post.created_at.to_i <= last_updated
       File.open('last_update.txt', 'w') { |f| f.write(post.created_at.to_i) }
+      File.open('history.log', 'a') { |f| f << "#{DateTime.now} > Checking: #{post.id} -- #{post.title}\n" }
 
-      puts "----Checking: #{post.id} -- #{post.title}"
       results = session.subreddit(SUBREDDIT).search(post.title).reject { |result| result.id == post.id }
 
       if results.any? { |result_post| result_post.title == post.title }
         post.report('Suspected Repost')
-        puts results.collect{|x| "#{x.id} -- #{x.title}"}.join("\n")
-        puts "Reporting....."
+        File.open('history.log', 'a') { |f| f << results.collect { |x| "--- #{x.id} -- #{x.title}" }.join("\n") }
+        File.open('history.log', 'a') { |f| f << "\nReporting...\n" }
       end
       sleep 2
     end
