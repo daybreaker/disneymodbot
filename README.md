@@ -32,7 +32,9 @@ You can use your user name, or create a unique user just to run as the bot user,
 
 5) Remember to change the subreddit name in the main ruby file.
 
-6) Run the app as `bundle exec ruby disneymodbot.rb`
+6) Run the app on a server using `nohup bundle exec ruby disneymodbot.rb &> /dev/null &`
+  
+    This will run the app in the background (or you can use screen, if you want) and you can watch the log using `tail -f history.log`
 
 ### Issues & Future Work
 
